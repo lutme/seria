@@ -1,0 +1,22 @@
+server:
+  port: 8083
+# 自定义染色器 token 配置 gateway 进行请求染色
+security:
+  gateway:
+    # 一段足够长的随机密钥
+    token: 24b2aa37ab6dfefc3e87dc59ee7c6479
+app:
+  security:
+    jwt:
+      secret-base64: 3AvTkRpMQbRqHJvB3pMwyzaaRip1SnIFQkXp8HSWykk=
+      expiration-minutes: 30
+spring:
+  application:
+    name: service-consumer
+  cloud:
+    nacos:
+      # Nacos 服务注册
+      discovery:
+        server-addr: 127.0.0.1:8848
+        username: nacos
+        password: 1230.+
