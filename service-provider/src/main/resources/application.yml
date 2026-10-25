@@ -1,5 +1,10 @@
 server:
-  port: 8081
+  port: 7089
+# 雪花 id 配置
+snowflake:
+  worker-id: 1
+  datacenter-id: 1
+
 # 自定义染色器 token 配置 gateway 进行请求染色
 security:
   gateway:

@@ -14,13 +14,13 @@ import reactor.core.publisher.Mono;
  * 请求染色过滤器 用于服务校验
  */
 @Component
-public class GatewayStampGlobalFilter implements GlobalFilter, Ordered {
+public class GatewayStampFilter implements GlobalFilter, Ordered {
 
     private static final String GATEWAY_TOKEN_HEADER = "X-Internal-Gateway-Token";
 
     private final String gatewayToken;
 
-    public GatewayStampGlobalFilter(@Value("${security.gateway.token}") String gatewayToken) {
+    public GatewayStampFilter(@Value("${gateway.stamp.token}") String gatewayToken) {
 
         if (gatewayToken == null || gatewayToken.isBlank()) {
             throw new IllegalStateException(

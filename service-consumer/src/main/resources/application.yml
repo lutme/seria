@@ -1,5 +1,5 @@
 server:
-  port: 8083
+  port: 7087
 # 自定义染色器 token 配置 gateway 进行请求染色
 security:
   gateway:

@@ -1,18 +1,5 @@
 server:
-  port: 8085
-# 自定义染色器 token 配置 gateway 进行请求染色
-security:
-  gateway:
-    # 一段足够长的随机密钥
-    token: 24b2aa37ab6dfefc3e87dc59ee7c6479
-app:
-  security:
-    jwt:
-      secret-base64: 3AvTkRpMQbRqHJvB3pMwyzaaRip1SnIFQkXp8HSWykk=
-      expiration-minutes: 30
-    whitelist:
-      - /consumer/auth/login
-      - /actuator/health
+  port: 7085
 spring:
   application:
     name: gateway-service
@@ -22,7 +9,10 @@ spring:
     # group 所属分组
     # refreshEnabled 支持动态刷新
     import:
-      - "nacos:gateway-routes.yaml?group=DEFAULT_GROUP&refreshEnabled=true"
+      - "nacos:gateway-routes.yaml?group=DEFAULT_GROUP"
+      - "nacos:gateway-stamp.yaml?group=DEFAULT_GROUP"
+      - "nacos:jwt.yaml?group=DEFAULT_GROUP"
+      - "nacos:redis.yaml?group=DEFAULT_GROUP"
   cloud:
     nacos:
       # Nacos 服务注册

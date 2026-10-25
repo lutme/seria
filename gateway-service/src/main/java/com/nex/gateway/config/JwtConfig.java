@@ -21,19 +21,19 @@ import java.util.Base64;
  */
 
 @Configuration
-public class SecurityConfig {
+public class JwtConfig {
 
     /**
      * 从 SecurityProperties 中获取配置文件绑定的 JWT 密钥。
      */
     @Bean
-    protected SecretKey secretKey(SecurityProperties properties) {
+    protected SecretKey secretKey(JwtProperties properties) {
 
-        String secretBase64 = properties.getJwt().getSecretBase64();
+        String secretBase64 = properties.getSecretBase64();
 
         if (secretBase64 == null || secretBase64.isBlank()) {
             throw new IllegalStateException(
-                    "app.security.jwt.secret-base64 must be configured"
+                    "jwt.secret-base64 must be configured"
             );
         }
 
@@ -41,7 +41,7 @@ public class SecurityConfig {
         try {
             keyBytes = Base64.getDecoder().decode(secretBase64);
         } catch (IllegalArgumentException ex) {
-            throw new IllegalStateException("app.security.jwt.secret-base64 must be valid Base64", ex);
+            throw new IllegalStateException("jwt.secret-base64 must be valid Base64", ex);
         }
 
         if (keyBytes.length < 32) {
@@ -76,7 +76,7 @@ public class SecurityConfig {
      */
     @Bean
     public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http,
-                                                         SecurityProperties properties,
+                                                         JwtProperties properties,
                                                          JwtAuthenticationEntryPoint entryPoint) {
         return http.csrf(ServerHttpSecurity.CsrfSpec::disable)
                 .authorizeExchange(exchange -> {

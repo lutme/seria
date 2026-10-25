@@ -25,7 +25,7 @@ public class GatewayRouteRefreshListener {
     }
 
     @EventListener
-    @Order(Ordered.LOWEST_PRECEDENCE)
+    @Order(Ordered.HIGHEST_PRECEDENCE)
     public void onEnvironmentChange(EnvironmentChangeEvent event) {
 
         log.info("检测到配置环境变化，准备刷新 Gateway 路由");

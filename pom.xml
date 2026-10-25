@@ -13,6 +13,7 @@
         <module>service-consumer</module>
         <module>gateway-service</module>
         <module>common-core</module>
+        <module>user-service</module>
     </modules>
 
     <properties>
