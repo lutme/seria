@@ -1,6 +1,7 @@
 package com.nex.gateway.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.RequiredArgsConstructor;
 import org.jspecify.annotations.NonNull;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -18,13 +19,10 @@ import java.util.Map;
  * 鉴权没通过统一返回消息
  */
 @Component
+@RequiredArgsConstructor
 public class JwtAuthenticationEntryPoint implements ServerAuthenticationEntryPoint {
 
     private final ObjectMapper objectMapper;
-
-    public JwtAuthenticationEntryPoint(ObjectMapper objectMapper) {
-        this.objectMapper = objectMapper;
-    }
 
     @Override
     public @NonNull Mono<Void> commence(ServerWebExchange exchange, @NonNull AuthenticationException ex) {

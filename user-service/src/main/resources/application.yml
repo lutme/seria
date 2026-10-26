@@ -20,6 +20,7 @@ spring:
       - "nacos:gateway-stamp.yaml?group=DEFAULT_GROUP"
       - "nacos:jwt.yaml?group=DEFAULT_GROUP"
       - "nacos:redis.yaml?group=DEFAULT_GROUP"
+      - "nacos:user-mysql.yaml?group=DEFAULT_GROUP"
   cloud:
     nacos:
       # Nacos 服务注册

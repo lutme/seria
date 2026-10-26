@@ -1,9 +1,9 @@
 package com.nex.gateway.exception;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.jspecify.annotations.NonNull;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.boot.webflux.error.ErrorWebExceptionHandler;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
@@ -23,18 +23,13 @@ import java.util.concurrent.TimeoutException;
 /**
  * 异常同意处理钩子
  */
-
 @Component
+@RequiredArgsConstructor
+@Slf4j
 @Order(-1)
 public class GatewayExceptionHandler implements ErrorWebExceptionHandler {
 
-    private static final Logger log = LoggerFactory.getLogger(GatewayExceptionHandler.class);
-
     private final ObjectMapper objectMapper;
-
-    public GatewayExceptionHandler(ObjectMapper objectMapper) {
-        this.objectMapper = objectMapper;
-    }
 
     private HttpStatusCode resolveStatus(Throwable ex) {
         Throwable current = ex;

@@ -13,7 +13,6 @@ import java.util.Map;
 /**
  * 统一框架内部错误返回消息格式
  */
-
 @Component
 public class CustomErrorAttributes extends DefaultErrorAttributes {
 

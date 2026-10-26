@@ -1,5 +1,6 @@
 package com.nex.user.config;
 
+import lombok.RequiredArgsConstructor;
 import org.springframework.security.oauth2.jose.jws.MacAlgorithm;
 import org.springframework.security.oauth2.jwt.JwsHeader;
 import org.springframework.security.oauth2.jwt.JwtClaimsSet;
@@ -10,16 +11,12 @@ import org.springframework.stereotype.Service;
 import java.time.Instant;
 
 @Service
+@RequiredArgsConstructor
 public class JwtService {
 
     private final JwtEncoder jwtEncoder;
 
     private final JwtProperties securityProperties;
-
-    public JwtService(JwtEncoder jwtEncoder, JwtProperties securityProperties) {
-        this.jwtEncoder = jwtEncoder;
-        this.securityProperties = securityProperties;
-    }
 
     /**
      * 生成 JWT。

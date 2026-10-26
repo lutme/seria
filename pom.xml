@@ -9,11 +9,10 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>service-provider</module>
-        <module>service-consumer</module>
-        <module>gateway-service</module>
         <module>common-core</module>
+        <module>gateway-service</module>
         <module>user-service</module>
+        <module>product-service</module>
     </modules>
 
     <properties>
@@ -23,6 +22,7 @@
         <spring-boot.version>4.0.0</spring-boot.version>
         <spring-cloud.version>2025.1.0</spring-cloud.version>
         <spring-cloud-alibaba.version>2025.1.0.0</spring-cloud-alibaba.version>
+        <lombok.version>1.18.44</lombok.version>
     </properties>
 
     <dependencyManagement>
@@ -49,6 +49,12 @@
                 <version>${spring-cloud-alibaba.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>${lombok.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

@@ -48,7 +48,6 @@ public class GatewayStampFilter implements GlobalFilter, Ordered {
 
     /**
      * 返回 -2 是为了排在接口请求日志过滤器之前
-     * @return
      */
     @Override
     public int getOrder() {

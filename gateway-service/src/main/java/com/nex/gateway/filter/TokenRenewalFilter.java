@@ -1,9 +1,8 @@
 
 package com.nex.gateway.filter;
 
-import org.jspecify.annotations.NonNull;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
+import org.jspecify.annotations.NonNull;;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.gateway.filter.GatewayFilterChain;
 import org.springframework.cloud.gateway.filter.GlobalFilter;
@@ -34,9 +33,8 @@ import java.util.List;
 import java.util.UUID;
 
 @Component
+@Slf4j
 public class TokenRenewalFilter implements GlobalFilter, Ordered {
-
-    private static final Logger log = LoggerFactory.getLogger(TokenRenewalFilter.class);
 
     /**
      * 将续期后的 JWT 放入响应头, 供前端更新本地 Token
