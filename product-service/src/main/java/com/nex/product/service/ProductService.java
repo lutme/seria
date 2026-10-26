@@ -103,20 +103,22 @@ public class ProductService {
      * 修改商品名称和价格
      */
     @Transactional(rollbackFor = Exception.class)
-    public void update(Long id, ProductUpdateDto dto) {
+    public ApiResponse<String> update(Long id, ProductUpdateDto dto) {
         Product product = getById(id);
 
         product.setProductName(dto.getProductName());
         product.setProductPrice(dto.getProductPrice());
 
         productMapper.updateById(product);
+
+        return ApiResponse.success("修改成功");
     }
 
     /**
      * 上架或下架
      */
     @Transactional(rollbackFor = Exception.class)
-    public void changeStatus(Long id, Integer status) {
+    public ApiResponse<String> changeStatus(Long id, Integer status) {
         if (status == null || (status != 0 && status != 1)) {
             throw new ResponseStatusException(
                     HttpStatus.BAD_REQUEST, "商品状态只能为 0 或 1"
@@ -126,6 +128,8 @@ public class ProductService {
         Product product = getById(id);
         product.setProductStatus(status);
         productMapper.updateById(product);
+
+        return ApiResponse.success("操作成功");
     }
 
     /**
@@ -133,7 +137,7 @@ public class ProductService {
      * 将来有订单引用商品时, 需要重新评估删除规则
      */
     @Transactional(rollbackFor = Exception.class)
-    public void delete(Long id) {
+    public ApiResponse<String> delete(Long id) {
         getById(id);
 
         LambdaQueryWrapper<ProductStock> stockQuery =
@@ -142,5 +146,7 @@ public class ProductService {
 
         productStockMapper.delete(stockQuery);
         productMapper.deleteById(id);
+
+        return ApiResponse.success("删除成功");
     }
 }
