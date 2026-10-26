@@ -59,6 +59,6 @@ public class GlobalExceptionHandler {
         log.error("商品服务发生未处理异常", ex);
 
         return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                .body(new ApiResponse<>(500, "服务器内部错误", null));
+                .body(new ApiResponse<>(500, "商品服务内部错误", null));
     }
 }

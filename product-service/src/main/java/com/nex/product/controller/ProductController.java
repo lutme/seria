@@ -28,10 +28,10 @@ public class ProductController {
     }
 
     @GetMapping("/listPage")
-    public ApiResponse<IPage<Product>> page(@RequestParam(name = "current", defaultValue = "1") long current,
-                                            @RequestParam(name = "size", defaultValue = "10") long size,
-                                            @RequestParam(name = "keyword", required = false) String keyword,
-                                            @RequestParam(name = "status", required = false) Integer status) {
+    public ApiResponse<IPage<Product>> page(@RequestParam(value = "current", defaultValue = "1") long current,
+                                            @RequestParam(value = "size", defaultValue = "10") long size,
+                                            @RequestParam(value = "keyword", required = false) String keyword,
+                                            @RequestParam(value = "status", required = false) Integer status) {
 
         return productService.page(current, size, keyword, status);
     }
