@@ -17,7 +17,6 @@ import java.security.MessageDigest;
  * gateway 染色校验过滤器
  * 校验 gateway token 以防越过 gateway 直接访问服务
  */
-
 @Component
 public class GatewayTokenFilter extends OncePerRequestFilter {
 

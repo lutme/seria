@@ -19,7 +19,6 @@ import java.util.Base64;
 /**
  * 鉴权
  */
-
 @Configuration
 public class JwtConfig {
 

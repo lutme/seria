@@ -17,7 +17,7 @@ import java.util.Base64;
 public class JwtConfig {
 
     /**
-     * 从 SecurityProperties 中获取配置文件绑定的 JWT 密钥。
+     * 从 SecurityProperties 中获取配置文件绑定的 JWT 密钥
      */
     @Bean
     protected SecretKey secretKey(JwtProperties properties) {
@@ -47,7 +47,7 @@ public class JwtConfig {
     }
 
     /**
-     * JWT 编码器：供 JwtService 签发 Token 使用。
+     * JWT 编码器: 供 JwtService 签发 Token 使用
      */
     @Bean
     public JwtEncoder jwtEncoder(SecretKey secretKey) {
