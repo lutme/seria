@@ -23,7 +23,7 @@ import java.util.Base64;
 public class JwtConfig {
 
     /**
-     * 从 SecurityProperties 中获取配置文件绑定的 JWT 密钥。
+     * 从 SecurityProperties 中获取配置文件绑定的 JWT 密钥
      */
     @Bean
     protected SecretKey secretKey(JwtProperties properties) {
@@ -53,7 +53,7 @@ public class JwtConfig {
     }
 
     /**
-     * JWT 解码器：验证 JWT 签名及有效期。
+     * JWT 解码器: 验证 JWT 签名及有效期
      */
     @Bean
     public ReactiveJwtDecoder jwtDecoder(SecretKey secretKey) {
@@ -61,7 +61,7 @@ public class JwtConfig {
     }
 
     /**
-     * JWT 编码器：供 JwtService 签发 Token 使用。
+     * JWT 编码器: 供 JwtService 签发 Token 使用
      */
     @Bean
     public JwtEncoder jwtEncoder(SecretKey secretKey) {
@@ -70,8 +70,8 @@ public class JwtConfig {
     }
 
     /**
-     * 网关安全规则：白名单从配置文件读取，
-     * 其余请求都必须通过 JWT 身份认证。
+     * 网关安全规则: 白名单从配置文件读取
+     * 其余请求都必须通过 JWT 身份认证
      */
     @Bean
     public SecurityWebFilterChain securityWebFilterChain(ServerHttpSecurity http,
