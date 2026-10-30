@@ -11,7 +11,7 @@
 | 项目 | 版本 / 配置 | 备注 |
 |---|---|---|
 | 操作系统 | Windows 11（amd64） | 本地开发环境 |
-| Java JDK | Oracle JDK 17.0.20.1 LTS | Java 版本 |
+| Java JDK | Oracle JDK 17.0.21.3 LTS | Java 版本 |
 | Maven | Apache Maven 3.10.0 | Maven 版本 |
 | IDE | IntelliJ IDEA 2026.2.3 | 开发工具版本 |
 | 字符编码 | Windows 环境曾显示 GBK；项目编译编码为 UTF-8 | 建议源码、资源文件统一 UTF-8 |
